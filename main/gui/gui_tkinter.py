@@ -22,19 +22,19 @@ def UpdaterButton():
 
 #  Bilder für die Widgets werden geöffnet
 
-png_logo_open = Image.open("images/honeycomb.png").resize((300, 300))
+png_logo_open = Image.open("../images/honeycomb.png").resize((300, 300))
 png_logo = ImageTk.PhotoImage(png_logo_open)
 
-png_temp_open = Image.open("images/temperatur.png").resize((300, 300))
+png_temp_open = Image.open("../images/temperatur.png").resize((300, 300))
 png_temp = ImageTk.PhotoImage(png_temp_open)
 
-png_time_open = Image.open("images/time.png").resize((300, 300))
+png_time_open = Image.open("../images/time.png").resize((300, 300))
 png_time = ImageTk.PhotoImage(png_time_open)
 
-png_level_open = Image.open("images/level.png").resize((300, 300))
+png_level_open = Image.open("../images/level.png").resize((300, 300))
 png_level = ImageTk.PhotoImage(png_level_open)
 
-png_humidity_open = Image.open("images/humidity.png").resize((300, 300))
+png_humidity_open = Image.open("../images/humidity.png").resize((300, 300))
 png_humidity = ImageTk.PhotoImage(png_humidity_open)
 
 ########################################################################################################################
