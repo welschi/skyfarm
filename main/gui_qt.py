@@ -13,7 +13,6 @@ from temperatur_dummy import aktuelleTemperaturDummy
 from humidity_dummy import aktuelleHumidityDummy
 
 
-
 ########################################################################################################################
 ##  Oberklasse definiert Frm_Main über QMainWindow
 
