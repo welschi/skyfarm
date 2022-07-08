@@ -1,9 +1,4 @@
-# coding=utf-8
-# messprogramm.py
-# ----------------
-
 import os, sys, time
-
 
 def aktuelleTemperatur():
     # 1-wire Slave Datei lesen
@@ -18,18 +13,3 @@ def aktuelleTemperatur():
     # Temperatur ausgeben
     rueckgabewert = '%6.2f' % temperature
     return rueckgabewert
-
-
-schleifenZaehler = 0
-schleifenAnzahl = 20
-schleifenPause = 1
-
-print("Temperaturabfrage für ", schleifenAnzahl, " Messungen alle ", schleifenPause, " Sekunden gestartet")
-
-while schleifenZaehler <= schleifenAnzahl:
-    messdaten = aktuelleTemperatur()
-    print("Aktuelle Temperatur : ", messdaten, "°C, in der ", schleifenZaehler, ". Messabfrage")
-    time.sleep(schleifenPause)
-    schleifenZaehler = schleifenZaehler + 1
-
-print("Temperaturabfrage beendet")
