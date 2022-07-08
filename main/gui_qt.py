@@ -1,5 +1,9 @@
 ## Main Gui file zum Ausführen
 
+## Befehle:
+## pyside6-designer --> Öffnen des QT Designers
+## pyside6-uic gui_main.ui -o gui_main.py --> Umwandeln der .ui Datei in .py Datei
+
 ########################################################################################################################
 ##  import alle packages
 
