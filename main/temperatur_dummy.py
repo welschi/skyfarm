@@ -1,4 +1,4 @@
-def aktuelleTemperatur():
+def aktuelleTemperaturDummy():
     temperatur = 25.4567
 
     # Temperatur ausgeben

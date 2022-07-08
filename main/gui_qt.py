@@ -5,7 +5,8 @@
 
 from PySide6.QtWidgets import QApplication, QMainWindow
 from gui_main import Ui_gui_main
-from temperatur_dummy import aktuelleTemperatur
+from temperatur_dummy import aktuelleTemperaturDummy
+from humidity_dummy import aktuelleHumidityDummy
 
 
 
@@ -17,10 +18,16 @@ class Frm_Main(QMainWindow, Ui_gui_main):
         super().__init__()
         self.setupUi(self)
 
-def test_change():
-    temperatur_string = "Temperatur: " + str(aktuelleTemperatur())
+def Temperatur():
+    temperatur_string = "Temperatur: " + str(aktuelleTemperaturDummy())
     temp_label = gui_main.lb_temp
     temp_label.setText(temperatur_string)
+
+def Luftfeuchtigkeit():
+    humidity_string = "Luftfeuchtigkeit: " + str(aktuelleHumidityDummy())
+    humidity_label = gui_main.lb_humidity
+    humidity_label.setText(humidity_string)
+
 
 ########################################################################################################################
 ##  Ausführen der App
@@ -28,7 +35,8 @@ def test_change():
 test_app = QApplication()
 gui_main = Frm_Main()
 
-gui_main.bt_refresh.clicked.connect(test_change)
+gui_main.bt_refresh.clicked.connect(Temperatur)
+gui_main.bt_refresh.clicked.connect(Luftfeuchtigkeit)
 
 gui_main.show()
 test_app.exec()
