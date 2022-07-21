@@ -27,11 +27,4 @@ while True:
     pulse_time = pulse_stop - pulse_start
 
     distance = pulse_time * 17150
-    print(round(distance, 2))
-
-    time.sleep(1)
-
-    if distance < 4:
-        print("Water will overflow")
-    else:
-        print("Still flowing")
+    print(str(round(distance, 2)) + "mm")
