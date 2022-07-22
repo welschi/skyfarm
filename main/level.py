@@ -40,3 +40,5 @@ while True:
     # Errechnen des Abstandes
     distance = pulse_time * 17150
     print(str(round(distance, 2)) + "mm")
+
+# test
