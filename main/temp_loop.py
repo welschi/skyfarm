@@ -1,4 +1,5 @@
 from temperatur import aktuelleTemperatur
+import time
 
 schleifenZaehler = 0
 schleifenAnzahl = 20
