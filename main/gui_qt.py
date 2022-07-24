@@ -11,6 +11,7 @@ from PySide6.QtWidgets import QApplication, QMainWindow
 from gui_main import Ui_gui_main
 from temperatur import aktuelleTemperatur
 from humidity import aktuelleHumidity
+from level import aktuellerWasserstand
 
 
 ########################################################################################################################
@@ -30,6 +31,11 @@ def Luftfeuchtigkeit():
     humidity_string = "Luftfeuchtigkeit: " + str(aktuelleHumidity())
     humidity_label = gui_main.lb_humidity
     humidity_label.setText(humidity_string)
+
+def Wasserstand():
+    level_string = "Wasserstand: " + str(aktuellerWasserstand())
+    level_label = gui_main.lb_level
+    level_label.setText(level_string)
 
 
 ########################################################################################################################
