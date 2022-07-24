@@ -9,8 +9,8 @@
 
 from PySide6.QtWidgets import QApplication, QMainWindow
 from gui_main import Ui_gui_main
-from temperatur_dummy import aktuelleTemperaturDummy
-from humidity_dummy import aktuelleHumidityDummy
+from temperatur import aktuelleTemperatur
+from humidity import aktuelleHumidity
 
 
 ########################################################################################################################
@@ -22,12 +22,12 @@ class Frm_Main(QMainWindow, Ui_gui_main):
         self.setupUi(self)
 
 def Temperatur():
-    temperatur_string = "Temperatur: " + str(aktuelleTemperaturDummy())
+    temperatur_string = "Temperatur: " + str(aktuelleTemperatur())
     temp_label = gui_main.lb_temp
     temp_label.setText(temperatur_string)
 
 def Luftfeuchtigkeit():
-    humidity_string = "Luftfeuchtigkeit: " + str(aktuelleHumidityDummy())
+    humidity_string = "Luftfeuchtigkeit: " + str(aktuelleHumidity())
     humidity_label = gui_main.lb_humidity
     humidity_label.setText(humidity_string)
 
