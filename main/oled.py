@@ -1,13 +1,17 @@
 import time
 
-import Adafruit_GPIO.SPI as SPI
-import Adafruit_SSD1306
+import board
+import busio
+import adafruit_ssd1306
 
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
 import RPi.GPIO as GPIO
 import time
+
+# i2c Initiation
+i2c = busio.I2C(board.SCL, board.SDA)
 
 # Raspberry Pi pin configuration:
 RST = 24
@@ -26,7 +30,7 @@ GPIO.setup(TRIG, GPIO.OUT)
 GPIO.setup(ECHO, GPIO.IN)
 
 # 128x32 display with hardware I2C:
-disp = Adafruit_SSD1306.SSD1306_128_64(rst=RST)
+disp = adafruit_ssd1306.SSD1306_I2C(128, 64, i2c, addr=0x3d)
 
 # Initialize library.
 disp.begin()
