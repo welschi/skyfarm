@@ -21,7 +21,7 @@ while schleifenZaehler <= schleifenAnzahl:
         schleifenZaehler = schleifenZaehler + 1
 
     except RuntimeError as error:
-        print(error.args[0])
+        print("Beim nächsten Mal wirds besser")
         time.sleep(1.0)
         continue
     except Exception as error:
