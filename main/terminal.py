@@ -2,37 +2,30 @@ from temperatur import aktuelleTemperatur
 from humidity import aktuelleHumidity, dhtDevice
 from level import aktuellerWasserstand
 import time
-from curses import *
 
 zaehler = 0
-anzahl = 200
+anzahl = 1000000
 pause = 1
 
-def main(stdscr):
+while zaehler <= anzahl:
+    try:
+        messdaten_humidity = aktuelleHumidity()
+        messdaten_temperatur = aktuelleTemperatur()
+        messdaten_level = aktuellerWasserstand()
 
-    while zaehler <= anzahl:
-        try:
-            messdaten_humidity = aktuelleHumidity()
-            messdaten_temperatur = aktuelleTemperatur()
-            messdaten_level = aktuellerWasserstand()
+        text = "Der aktuelle Wasserstand beträgt: " + str(messdaten_level) + "cm bis zur Wasseroberfläche.\n" + "Die aktuelle Temperatur beträgt: " + str(messdaten_temperatur) + "°C.\n" + "DIe aktuelle Luftfeuchtigkeit beträgt: " + str(aktuelleHumidity) + "%."
 
-            stdscr.addstr(0, 0, "Der aktuelle Wasserstand beträgt: " + str(messdaten_level) + "cm bis zur Wasseroberfläche.")
-            stdscr.addstr(3, 0, "Die aktuelle Temperatur beträgt: " + str(messdaten_temperatur) + "°C.")
-            stdscr.addstr(6, 0, "DIe aktuelle Luftfeuchtigkeit beträgt: " + str(aktuelleHumidity) + "%.")
+        print(text, end="\r")
 
-            time.sleep(pause)
-            zaehler = zaehler + 1
+        time.sleep(pause)
+        zaehler = zaehler + 1
 
-        except RuntimeError as error:
-            time.sleep(1.0)
-            continue
-
-        except Exception as error:
-            dhtDevice.exit()
-            raise error
-
+    except RuntimeError as error:
         time.sleep(1.0)
+        continue
 
-    stdscr.getch()
+    except Exception as error:
+        dhtDevice.exit()
+        raise error
 
-wrapper(main)
+    time.sleep(1.0)
