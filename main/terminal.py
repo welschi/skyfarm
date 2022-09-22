@@ -7,7 +7,7 @@ import os
 
 zaehler = 0
 anzahl = 1000000
-pause = 1
+pause = 0.0001
 
 
 def printText(messdaten_level, messdaten_temperatur, messdaten_humidity):

@@ -1,13 +1,16 @@
 import time
 import RPi.GPIO as GPIO
+
+pin_relais = 21
+
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(5,GPIO.OUT)
+GPIO.setup(pin_relais,GPIO.OUT)
 
 def trigger_relais():
-    GPIO.setup(5, GPIO.HIGH)
-    timeout = 90  # [seconds]
+    GPIO.output(pin_relais, GPIO.HIGH)
+    timeout = 5  # [seconds]
     time.sleep(timeout)
-    GPIO.setup(5, GPIO.LOW)
+    GPIO.output(pin_relais, GPIO.LOW)
 
 
 trigger_relais()
