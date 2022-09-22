@@ -2,7 +2,6 @@ import datetime
 import time
 
 import RPi.GPIO as GPIO
-
 pin = 21
 
 GPIO.setmode(GPIO.BCM)
