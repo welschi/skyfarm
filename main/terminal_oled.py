@@ -2,7 +2,7 @@ from temperatur import aktuelleTemperatur
 from humidity import aktuelleHumidity, dhtDevice
 from level import aktuellerWasserstand
 
-
+import datetime
 import time
 import board
 import busio
@@ -70,12 +70,14 @@ while zaehler <= anzahl:
         messdaten_temperatur = aktuelleTemperatur()
         messdaten_level = aktuellerWasserstand()
         printText(messdaten_level, messdaten_temperatur, messdaten_humidity)
+        currentTime = datetime.datetime.now()
+        i = currentTime.strftime("%H:%M:%S")
 
-        draw.text((0, 0), "Skyfarm to the moon", font=font, fill=255)
-        draw.text((0, 16), "Temperatur :" + str(messdaten_temperatur), font=font, fill=255)
+        draw.text((0, 0), "Skyfarm: " + i, font=font, fill=255)
+        draw.text((0, 16), "Temperatur: " + str(messdaten_temperatur), font=font, fill=255)
         # draw.text((80, 16), str(Temp, 'utf-8'), font=font, fill=255)
-        draw.text((0, 32), "Feuchtigkeit :" + str(messdaten_humidity) + " %", font=font, fill=255)
-        draw.text((0, 48), "Wasserstand :" + str(messdaten_level), font=font, fill=255)
+        draw.text((0, 32), "Feuchtigkeit: " + str(messdaten_humidity) + " %", font=font, fill=255)
+        draw.text((0, 48), "Wasserstand: " + str(messdaten_level), font=font, fill=255)
 
         # Display image
         oled.image(image)
