@@ -23,10 +23,6 @@ def set_relais_low():
 currentTime = datetime.datetime.now()
 i = currentTime.strftime("%H:%M:%S")
 
-# time1 = "11:00:00"
-# time2 = "15:00:00"
-# time3 = "20:00:00"
-
 schalt_zeit = [
     uhrzeit2sec("11:00:00"),
     uhrzeit2sec("13:52:00"),
