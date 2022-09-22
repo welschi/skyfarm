@@ -2,12 +2,20 @@ import time
 import board
 import busio
 import digitalio
+import os
 
 from PIL import Image, ImageDraw, ImageFont
 import adafruit_ssd1306
 
 import subprocess
 
+from temperatur import aktuelleTemperatur
+from humidity import aktuelleHumidity, dhtDevice
+from level import aktuellerWasserstand
+
+messdaten_humidity = aktuelleHumidity()
+messdaten_temperatur = aktuelleTemperatur()
+messdaten_level = aktuellerWasserstand()
 # Define the Reset Pin
 oled_reset = digitalio.DigitalInOut(board.D4)
 
@@ -58,10 +66,10 @@ while True:
 
     # Pi Stats Display
     draw.text((0, 0), "Skyfarm to the moon", font=font, fill=255)
-    draw.text((0, 16), str(CPU, 'utf-8') + "LA", font=font, fill=255)
-    draw.text((80, 16), str(Temp, 'utf-8'), font=font, fill=255)
-    draw.text((0, 32), str(MemUsage, 'utf-8'), font=font, fill=255)
-    draw.text((0, 48), str(Disk, 'utf-8'), font=font, fill=255)
+    draw.text((0, 16), "Temperatur :" + str(messdaten_temperatur), font=font, fill=255)
+    #draw.text((80, 16), str(Temp, 'utf-8'), font=font, fill=255)
+    draw.text((0, 32), "Feuchtigkeit :" + str(messdaten_humidity) + " %", font=font, fill=255)
+    draw.text((0, 48), "Wasserstand :" + str(messdaten_level), font=font, fill=255)
 
     # Display image
     oled.image(image)
