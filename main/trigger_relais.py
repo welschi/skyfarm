@@ -12,11 +12,11 @@ def trigger_relais():
 
 
 
-if time.strftime('%X') = '08:00:00' and aqua_stop = false:
+if time.strftime('%X') = '08:00:00'  #and aqua_stop = false:
     trigger_relais()
-elif time.strftime('%X') = '15:00:00' and aqua_stop = false:
+elif time.strftime('%X') = '15:00:00'  #and aqua_stop = false:
     trigger_relais()
-elif time.strftime('%X') = '20:00:00' and aqua_stop = false:
+elif time.strftime('%X') = '20:00:00'  #and aqua_stop = false:
     trigger_relais()
 else:
     GPIO.output(5, GPIO.LOW)
