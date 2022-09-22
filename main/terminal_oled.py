@@ -62,10 +62,15 @@ def printText(messdaten_level, messdaten_temperatur, messdaten_humidity):
 
 while zaehler <= anzahl:
     try:
+
+        # Draw a black filled box to clear the image.
+        draw.rectangle((0, 0, oled.width, oled.height), outline=0, fill=0)
+
         messdaten_humidity = aktuelleHumidity()
         messdaten_temperatur = aktuelleTemperatur()
         messdaten_level = aktuellerWasserstand()
         printText(messdaten_level, messdaten_temperatur, messdaten_humidity)
+
         draw.text((0, 0), "Skyfarm to the moon", font=font, fill=255)
         draw.text((0, 16), "Temperatur :" + str(messdaten_temperatur), font=font, fill=255)
         # draw.text((80, 16), str(Temp, 'utf-8'), font=font, fill=255)
