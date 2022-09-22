@@ -1,4 +1,4 @@
-import time
+import datetime
 import RPi.GPIO as GPIO
 
 pin_relais = 21
@@ -14,3 +14,20 @@ def trigger_relais():
 
 
 trigger_relais()
+
+def trigger_relais():
+    GPIO.output(pin_relais, GPIO.HIGH)
+    timeout = 30  # [seconds]
+    time.sleep(timeout)
+    GPIO.output(pin_relais, GPIO.LOW)
+
+
+
+if i == time1:  #and aqua_stop = false
+    trigger_relais()
+elif i == time2:  #and aqua_stop = false
+    trigger_relais()
+elif i == time3 :  #and aqua_stop = false
+    trigger_relais()
+else:
+    GPIO.output(pin, GPIO.LOW)
