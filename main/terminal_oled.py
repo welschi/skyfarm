@@ -1,3 +1,8 @@
+from temperatur import aktuelleTemperatur
+from humidity import aktuelleHumidity, dhtDevice
+from level import aktuellerWasserstand
+
+
 import time
 import board
 import busio
