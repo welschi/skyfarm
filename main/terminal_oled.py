@@ -44,7 +44,7 @@ image = Image.new("1", (oled.width, oled.height))
 # Lass das Zeichen Objekt ein Bild zeichnen.
 draw = ImageDraw.Draw(image)
 
-# Erzeuge einen weißen Hintergrund
+# Erzeuge einen weißen Hintergrund.
 draw.rectangle((0, 0, oled.width, oled.height), outline=255, fill=255)
 
 font = ImageFont.truetype('PixelOperator.ttf', 16)
