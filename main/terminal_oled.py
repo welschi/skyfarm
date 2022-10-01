@@ -18,10 +18,10 @@ zaehler = 0
 anzahl = 1000000
 pause = 0.0001
 
-# Define the Reset Pin
+# Definiere den Reset Pin
 oled_reset = digitalio.DigitalInOut(board.D4)
 
-# Display Parameters
+# Display Parameter
 WIDTH = 128
 HEIGHT = 64
 BORDER = 5
@@ -29,22 +29,22 @@ BORDER = 5
 # Display Refresh
 LOOPTIME = 1.0
 
-# Use for I2C.
+# I2C.
 i2c = board.I2C()
 oled = adafruit_ssd1306.SSD1306_I2C(WIDTH, HEIGHT, i2c, addr=0x3C, reset=oled_reset)
 
-# Clear display.
+# Lösche Display.
 oled.fill(0)
 oled.show()
 
-# Create blank image for drawing.
-# Make sure to create image with mode '1' for 1-bit color.
+# Erzeuge ein leeres Bild zum Zeichnen.
+# Gehe sicher ein Bild im Mode '1' für 1-bit Farbe zu erzeugen.
 image = Image.new("1", (oled.width, oled.height))
 
-# Get drawing object to draw on image.
+# Lass das Zeichen Objekt ein Bild zeichnen.
 draw = ImageDraw.Draw(image)
 
-# Draw a white background
+# Erzeuge einen weißen Hintergrund
 draw.rectangle((0, 0, oled.width, oled.height), outline=255, fill=255)
 
 font = ImageFont.truetype('PixelOperator.ttf', 16)
@@ -63,7 +63,7 @@ def printText(messdaten_level, messdaten_temperatur, messdaten_humidity):
 while zaehler <= anzahl:
     try:
 
-        # Draw a black filled box to clear the image.
+        # Erzeuge ein schwarz gefülltes Rechteck als Hintergrund.
         draw.rectangle((0, 0, oled.width, oled.height), outline=0, fill=0)
 
         messdaten_humidity = aktuelleHumidity()
@@ -75,11 +75,10 @@ while zaehler <= anzahl:
 
         draw.text((0, 0), "Skyfarm: " + i, font=font, fill=255)
         draw.text((0, 16), "Temperatur: " + str(messdaten_temperatur), font=font, fill=255)
-        # draw.text((80, 16), str(Temp, 'utf-8'), font=font, fill=255)
         draw.text((0, 32), "Feuchtigkeit: " + str(messdaten_humidity) + " %", font=font, fill=255)
         draw.text((0, 48), "Wasserstand: " + str(messdaten_level), font=font, fill=255)
 
-        # Display image
+        # Zeige Bild
         oled.image(image)
         oled.show()
         time.sleep(LOOPTIME)
